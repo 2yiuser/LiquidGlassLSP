@@ -1,3 +1,39 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+}
+
+android {
+    namespace = "com.example.liquidglasslsp" // 换成你自己的包名
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId = "com.example.liquidglasslsp" // 换成你自己的包名
+        minSdk = 21
+        targetSdk = 36
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.14"
+    }
+}
+
 dependencies {
     // 核心 Compose 依赖
     implementation("androidx.core:core-ktx:1.15.0")
@@ -23,7 +59,7 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.10.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 
-    // Debug 工具依赖（解决 tooling/test 别名报错）
+    // Debug 工具依赖
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
