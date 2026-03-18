@@ -1,10 +1,10 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    // 删掉这一行：id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.example.backdrop" // 请替换为你的实际包名
+    namespace = "com.example.backdrop" // 替换为你的包名
     compileSdk = 36
 
     defaultConfig {
