@@ -1,10 +1,11 @@
 plugins {
     id("com.android.library")
-    // 删掉这一行：id("org.jetbrains.kotlin.android")
+    // 库模块也需要 Compose Compiler 插件
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
-    namespace = "com.example.backdrop" // 替换为你的包名
+    namespace = "com.example.backdrop"
     compileSdk = 36
 
     defaultConfig {
@@ -27,9 +28,7 @@ android {
         compose = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
+    // 同样删掉 composeOptions
 }
 
 dependencies {
