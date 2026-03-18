@@ -1,19 +1,18 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    // 删掉这一行：id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.example.liquidglasslsp" // 请替换为你的实际包名
+    namespace = "com.example.liquidglasslsp" // 替换为你的包名
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.liquidglasslsp" // 请替换为你的实际包名
+        applicationId = "com.example.liquidglasslsp" // 替换为你的包名
         minSdk = 21
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
