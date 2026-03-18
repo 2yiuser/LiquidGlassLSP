@@ -1,14 +1,14 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.example.liquidglasslsp" // 换成你自己的包名
+    namespace = "com.example.liquidglasslsp" // 请替换为你的实际包名
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.liquidglasslsp" // 换成你自己的包名
+        applicationId = "com.example.liquidglasslsp" // 请替换为你的实际包名
         minSdk = 21
         targetSdk = 36
         versionCode = 1
@@ -26,9 +26,11 @@ android {
             )
         }
     }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.14"
     }
@@ -45,15 +47,17 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
-    // 你的玻璃效果库
+    // 你的玻璃效果库模块
     implementation(project(":backdrop"))
 
-    // Xposed 模块必需
+    // Xposed 模块必需依赖
     compileOnly("de.robv.android.xposed:api:82")
     compileOnly("de.robv.android.xposed:api-extras:82")
 
-    // 测试依赖
+    // 单元测试依赖
     testImplementation("junit:junit:4.13.2")
+
+    // 安卓仪器化测试依赖
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.10.00"))
