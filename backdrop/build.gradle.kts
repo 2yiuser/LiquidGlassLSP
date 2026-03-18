@@ -1,11 +1,10 @@
 plugins {
     id("com.android.library")
-    // 库模块也需要 Compose Compiler 插件
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
-    namespace = "com.example.backdrop"
+    namespace = "com.kyant.backdrop" // 和你代码里的包名保持一致
     compileSdk = 36
 
     defaultConfig {
@@ -27,15 +26,17 @@ android {
     buildFeatures {
         compose = true
     }
-
-    // 同样删掉 composeOptions
 }
 
 dependencies {
+    // 核心 Compose 依赖（必须包含 shapes 相关 API）
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation(platform("androidx.compose:compose-bom:2024.10.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.material3:material3")
+    // 补充缺失的 Compose UI 形状依赖
+    implementation("androidx.compose.foundation:foundation:1.7.5")
+    implementation("androidx.compose.ui:ui-util:1.7.5")
 }
